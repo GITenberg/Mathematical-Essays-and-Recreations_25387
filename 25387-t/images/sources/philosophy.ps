@@ -1,0 +1,29 @@
+
+/cl {currentlinewidth} def
+/f {fill} def
+/l {lineto} def
+/c {curveto} def
+/m {moveto} def
+/n {newpath} def
+/p {pop} def
+/r {repeat} def
+/rl {rlineto} def
+/rm {rmoveto} def
+/rs {rectstroke} def
+/s {stroke} def
+/sh {show} def
+/sl {setlinewidth} def
+/t {translate} def
+/x {exch} def
+/: {gsave} def
+/; {grestore} def
+/getlblsz { dup 10 dict begin /show {false charpath} def
+ : n 0 0 m exec sh flattenpath pathbbox ; end} def
+/clbl { : getlblsz 3 -1 roll add -2 div 3 1 roll add -2 div
+ 5 1 roll 4 1 roll 5 1 roll m rm exec show ; } def
+/offset 0 def
+[ {ThisPage} <</CropBox [10 7 150 25] /MediaBox 1 index /ArtBox 1 index >> /PUT pdfmark
+
+/RomanaBT-Bold 14 selectfont
+80 16 (In General Philosophy:) clbl
+showpage

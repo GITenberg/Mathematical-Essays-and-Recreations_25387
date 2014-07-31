@@ -1,0 +1,98 @@
+
+/cl {currentlinewidth} def
+/f {fill} def
+/l {lineto} def
+/c {curveto} def
+/m {moveto} def
+/n {newpath} def
+/p {pop} def
+/r {repeat} def
+/rl {rlineto} def
+/rm {rmoveto} def
+/rs {rectstroke} def
+/s {stroke} def
+/sh {show} def
+/sl {setlinewidth} def
+/t {translate} def
+/x {exch} def
+/: {gsave} def
+/; {grestore} def
+/getlblsz { dup 10 dict begin /show {false charpath} def
+ : n 0 0 m exec sh flattenpath pathbbox ; end} def
+/clbl { : getlblsz 3 -1 roll add -2 div 3 1 roll add -2 div
+ 5 1 roll 4 1 roll 5 1 roll m rm exec show ; } def
+/llbl { : getlblsz 2 div 4 1 roll offset add neg
+ 7 -1 roll add 6 -1 roll 5 -1 roll sub m p p exec sh ; } def
+/rlbl { : getlblsz 2 div 4 1 roll p p p 3 -1 roll x sub
+ 3 -1 roll offset add x m exec sh ; } def
+/ulbl { : getlblsz p 2 div 6 -1 roll x sub
+ 5 -1 roll offset add m p p exec sh ; } def
+/dlbl { : getlblsz offset add 6 -1 roll x sub 
+ x 2 div 6 -1 roll x sub x m p p exec sh ; } def
+/lllbl { : 3 1 roll m hoffset offset rm exec sh ; } def
+/lrlbl { : 3 1 roll m getlblsz p x p sub hoffset sub offset rm exec sh ; } def
+/ullbl { : getlblsz x p sub offset sub x p 3 -1 roll add 3 -1 roll hoffset add x m exec sh ; } def
+/urlbl { : getlblsz 3 -1 roll sub offset add 4 1 roll
+ x sub hoffset add 5 -1 roll x sub  4 2 roll sub m exec sh ; } def
+% x y angle (string) cvlbl
+/cvlbl { : getlblsz 4 {pop} r 4 2 roll t x rotate 0 0 3 -1 roll lllbl ; } def
+/GoDown { 1 FontScale -0.15 mul rm } def
+/GonwoD { 1 FontScale 0.15 mul rm } def
+/GoUp { 1 FontScale 0.42 mul rm } def
+/GopU { 1 FontScale -0.42 mul rm } def
+/Super { currentfont .7 scalefont setfont GoUp
+ /FontScale FontScale .7 mul def exec show
+ /FontScale FontScale .7 div def GopU 
+ currentfont 1 .7 div scalefont setfont () } def
+/Sub { currentfont .7 scalefont setfont GoDown
+ /FontScale FontScale .7 mul def exec show
+ /FontScale FontScale .7 div def GonwoD
+ currentfont 1 .7 div scalefont setfont () } def
+
+/offset 3 def
+/hoffset {offset} def
+/FontScale 9 def
+/cmmi {/CMMI10 FontScale selectfont} def
+
+[ {ThisPage} <</CropBox [0 0 240 165] /MediaBox 1 index /ArtBox 1 index >> /PUT pdfmark
+
+100 80 t
+
+1 sl
+2 setlinejoin
+0 0 m 100 0 l 25 40 l closepath s
+cmmi
+25 40 (A) ulbl
+100 0 (C) rlbl
+0 0 (B) urlbl
+/A 0 def
+/B 100 def
+/R 90 def
+/S 80 def
+/X R R mul S S mul sub B B mul add A A mul sub B A sub 2 mul div def
+/Y R R mul X A sub dup mul sub sqrt neg def
+A 0 m B 0 l X Y l closepath s
+X Y (D) dlbl
+
+ 40 25 atan rotate
+/B 40 40 mul 25 25 mul add sqrt def
+/S 100 def
+/X R R mul S S mul sub B B mul add A A mul sub B A sub 2 mul div def
+/Y R R mul X A sub dup mul sub sqrt def
+A 0 m B 0 l X Y l closepath s X Y m 
+40 25 atan neg rotate 
+currentpoint (F) llbl
+
+100 0 t
+40 75 atan neg rotate
+/B 0 def
+/A 40 40 mul 75 75 mul add sqrt neg def
+/R 100 def
+/S 80 def
+/X R R mul S S mul sub B B mul add A A mul sub B A sub 2 mul div def
+/Y R R mul X A sub dup mul sub sqrt def
+A 0 m B 0 l X Y l closepath s X Y m 
+40 75 atan rotate
+currentpoint (E) rlbl
+
+showpage

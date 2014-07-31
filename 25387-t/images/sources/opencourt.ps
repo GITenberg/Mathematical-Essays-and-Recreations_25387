@@ -1,0 +1,33 @@
+
+/cl {currentlinewidth} def
+/f {fill} def
+/l {lineto} def
+/c {curveto} def
+/m {moveto} def
+/n {newpath} def
+/p {pop} def
+/r {repeat} def
+/rl {rlineto} def
+/rm {rmoveto} def
+/rs {rectstroke} def
+/s {stroke} def
+/sh {show} def
+/sl {setlinewidth} def
+/t {translate} def
+/x {exch} def
+/: {gsave} def
+/; {grestore} def
+/getlblsz { dup 10 dict begin /show {false charpath} def
+ : n 0 0 m exec sh flattenpath pathbbox ; end} def
+/clbl { : getlblsz 3 -1 roll add -2 div 3 1 roll add -2 div
+ 5 1 roll 4 1 roll 5 1 roll m rm exec show ; } def
+
+[ {ThisPage} <</CropBox [10 7 320 25] /MediaBox 1 index /ArtBox 1 index >> /PUT pdfmark
+
+/RomanaBT-Bold 14 selectfont
+135 15 (THE OPEN COURT PUBLISHING CO.,) clbl
+/RomanaBT-Bold 7 selectfont
+290 19 (CHICAGO.) clbl
+/RomanaBT-Bold 6 selectfont
+290 11 (324 Dearborn St.) clbl
+showpage

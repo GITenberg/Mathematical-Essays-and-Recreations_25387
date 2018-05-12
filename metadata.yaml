@@ -25,6 +25,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/4930
     wikipedia: http://en.wikipedia.org/wiki/Hermann_Schubert
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/25387#Mathematical-Essays-and-Recreations
 gutenberg_bookshelf: Mathematics
 gutenberg_issued: '2008-05-09'
 gutenberg_type: Text
